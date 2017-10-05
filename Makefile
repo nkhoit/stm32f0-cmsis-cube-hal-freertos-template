@@ -131,6 +131,8 @@ else
   DADEFS += -DCORTEX_USE_FPU=FALSE
 endif
 
+DDEFS += -DSTM32F051x8
+
 # Output directory and files
 ifeq ($(BUILDDIR),)
   BUILDDIR = build

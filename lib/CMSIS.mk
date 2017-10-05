@@ -1,4 +1,4 @@
-CMSIS_VERSION = 4.1
+CMSIS_VERSION = 4.5
 
 MCU_FAMILY_LOWERCASE = $(shell echo $(MCU_FAMILY) | tr '[:upper:]' '[:lower:]')
 MCU_MODEL_FAMILY_LOWERCASE  = $(shell echo $(MCU_MODEL_FAMILY) | tr '[:upper:]' '[:lower:]')

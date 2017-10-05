@@ -24,7 +24,7 @@ int main(void) {
     osThreadDef(CheckButton_thread, CheckButtonThread, osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
     osThreadCreate(osThread(User_thread), NULL);
     osThreadCreate(osThread(CheckButton_thread), NULL);
-    osKernelStart(NULL, NULL);
+    osKernelStart();
 
     while (1) {
 
@@ -59,7 +59,7 @@ void SystemClock_Config(void) {
   PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
   HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit);
 
-  __SYSCFG_CLK_ENABLE();
+  __HAL_RCC_SYSCFG_CLK_ENABLE();
 }
 
 /**
@@ -74,9 +74,9 @@ void MX_GPIO_Init(void) {
   GPIO_InitTypeDef GPIO_InitStruct;
 
   /* GPIO Ports Clock Enable */
-  __GPIOA_CLK_ENABLE();
-  __GPIOC_CLK_ENABLE();
-  __GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin : PA0 */
   GPIO_InitStruct.Pin = GPIO_PIN_0;
@@ -92,7 +92,7 @@ void MX_GPIO_Init(void) {
   GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_LOW;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 }
 

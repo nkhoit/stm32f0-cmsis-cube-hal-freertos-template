@@ -1,4 +1,4 @@
-HAL_VERSION = 1.0.1
+HAL_VERSION = 1.9.0
 
 HAL = ./lib/$(MCU_FAMILY)_HAL_Driver/$(HAL_VERSION)
 
